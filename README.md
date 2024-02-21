@@ -1,56 +1,39 @@
-# Chirpy Starter
+# My Jekyll Projects Repository
 
-[![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;
-[![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
+Welcome to my GitHub repository where I host my projects using Jekyll themes.
 
-When installing the [**Chirpy**][chirpy] theme through [RubyGems.org][gem], Jekyll can only read files in the folders
-`_data`, `_layouts`, `_includes`, `_sass` and `assets`, as well as a small part of options of the `_config.yml` file
-from the theme's gem. If you have ever installed this theme gem, you can use the command
-`bundle info --path jekyll-theme-chirpy` to locate these files.
+## About
 
-The Jekyll team claims that this is to leave the ball in the user’s court, but this also results in users not being
-able to enjoy the out-of-the-box experience when using feature-rich themes.
+This repository serves as a platform for hosting my projects using various Jekyll themes. Jekyll is a static site generator that allows easy website creation and hosting directly from GitHub repositories.
 
-To fully use all the features of **Chirpy**, you need to copy the other critical files from the theme's gem to your
-Jekyll site. The following is a list of targets:
+## Hosting a Page
 
-```shell
-.
-├── _config.yml
-├── _plugins
-├── _tabs
-└── index.html
-```
+In this repository, I've utilized Jekyll themes to create and host my projects. By simply committing your project files to the repository, GitHub Pages automatically builds and serves your site using the chosen Jekyll theme.
 
-To save you time, and also in case you lose some files while copying, we extract those files/configurations of the
-latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so that you can start writing in minutes.
+### How to Host a Page
 
-## Prerequisites
+1. **Choose a Jekyll Theme**: Select a Jekyll theme that fits your project's requirements.
+   
+2. **Commit Your Project Files**: Upload your project files, including markdown files, images, and any other necessary assets, to your GitHub repository.
 
-Follow the instructions in the [Jekyll Docs](https://jekyllrb.com/docs/installation/) to complete the installation of
-the basic environment. [Git](https://git-scm.com/) also needs to be installed.
+3. **Configure `_config.yml` (Optional)**: Customize the `_config.yml` file if you want to modify site settings like title, description, or navigation links.
 
-## Installation
+4. **Enable GitHub Pages**: Go to your repository's settings on GitHub and enable GitHub Pages, selecting the branch where your project files are stored.
 
-Sign in to GitHub and [**use this template**][use-template] to generate a brand new repository and name it
-`USERNAME.github.io`, where `USERNAME` represents your GitHub username.
+5. **Access Your Site**: Once GitHub Pages builds your site, it will be accessible at `https://yourusername.github.io/yourrepository`.
 
-Then clone it to your local machine and run:
+## Contributing
 
-```console
-$ bundle
-```
-
-## Usage
-
-Please see the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy#documentation).
+If you'd like to contribute to this repository by adding your own projects or improving existing ones, feel free to fork the repository and create a pull request. Your contributions are highly appreciated!
 
 ## License
 
-This work is published under [MIT][mit] License.
+This repository is licensed under the [MIT License](LICENSE).
 
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
-[use-template]: https://github.com/cotes2020/chirpy-starter/generate
-[CD]: https://en.wikipedia.org/wiki/Continuous_deployment
-[mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+## Acknowledgements
+
+I want to express my gratitude to the creators of the Jekyll themes used in this repository for their fantastic work.
+
+---
+
+Feel free to explore the projects hosted in this repository. If you have any questions or suggestions, don't hesitate to reach out.
