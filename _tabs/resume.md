@@ -95,9 +95,6 @@ Detail-oriented cybersecurity enthusiast with a strong foundation in basic secur
 
 - **LinkedIn:** [Gauranga Gautam](LinkedIn Profile URL)
 - **GitHub:** [SpiritedOnion](GitHub Profile URL) -->
-
----
-
 ## Professional Associations/Memberships
 
 - Member, Cybersecurity Professionals Network
