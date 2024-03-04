@@ -1,0 +1,1228 @@
+I"sh<p><strong>AWS lab by Gauranga Gautam</strong></p>
+
+<h1 id="lab1"><strong>Lab1</strong></h1>
+
+<p><strong>Task 1: Explore Users and Groups</strong></p>
+
+<ol>
+  <li>Users:</li>
+</ol>
+
+<ul>
+  <li>
+    <p>user-1, user-2, user-3 created.</p>
+  </li>
+  <li>
+    <p>No permissions assigned.</p>
+  </li>
+</ul>
+
+<p><img src="assets/aws/image45.png" alt="" /></p>
+
+<p><img src="assets/aws/image34.png" alt="" /></p>
+
+<p><strong>Groups:</strong></p>
+
+<ul>
+  <li>EC2-Admin, EC2-Support, S3-Support created.</li>
+</ul>
+
+<p><strong>Group Permissions:</strong></p>
+
+<ul>
+  <li>
+    <p>EC2-Support: AmazonEC2ReadOnlyAccess policy.</p>
+  </li>
+  <li>
+    <p>S3-Support: AmazonS3ReadOnlyAccess policy.</p>
+  </li>
+  <li>
+    <p>EC2-Admin: Inline policy for EC2 Describe, Start, Stop.</p>
+  </li>
+</ul>
+
+<p><img src="assets/aws/image36.png" alt="" /></p>
+
+<p><img src="assets/aws/image73.png" alt="" /></p>
+
+<p><img src="assets/aws/image35.png" alt="" /></p>
+
+<p><img src="assets/aws/image41.png" alt="" /></p>
+
+<p><strong>Task 2: Add Users to Groups</strong></p>
+
+<p><strong>Add user-1 to S3-Support:</strong></p>
+
+<ul>
+  <li>Users &gt; S3-Support &gt; Users tab &gt; Add user-1.</li>
+</ul>
+
+<p><strong>Add user-2 to EC2-Support:</strong></p>
+
+<ul>
+  <li>Users &gt; EC2-Support &gt; Users tab &gt; Add user-2.</li>
+</ul>
+
+<p><strong>Add user-3 to EC2-Admin:</strong></p>
+
+<ul>
+  <li>Users &gt; EC2-Admin &gt; Users tab &gt; Add user-3.</li>
+</ul>
+
+<p><img src="assets/aws/image57.png" alt="" /></p>
+
+<p><img src="assets/aws/image26.png" alt="" /></p>
+
+<p><img src="assets/aws/image38.png" alt="" /></p>
+
+<p><strong>Task 3: Sign-In and Test Users</strong></p>
+
+<p><strong>Test user-1 (S3-Support):</strong></p>
+
+<p>Sign in with IAM user-1.</p>
+
+<p>S3 access granted, EC2 access denied.</p>
+
+<p><strong>Test user-2 (EC2-Support):</strong></p>
+
+<p>Sign out user-1.</p>
+
+<p>Sign in with IAM user-2.</p>
+
+<p>EC2 read-only access, no S3 access.</p>
+
+<p><strong>Test user-3 (EC2-Admin):</strong></p>
+
+<p>Sign out user-2.</p>
+
+<p>Sign in with IAM user-3.</p>
+
+<p>EC2 start/stop permissions, no S3 access.</p>
+
+<p><img src="assets/aws/image15.png" alt="" /></p>
+
+<p><img src="assets/aws/image69.png" alt="" /></p>
+
+<p><img src="assets/aws/image70.png" alt="" /></p>
+
+<h2><img src="assets/aws/image22.png" alt="" /></h2>
+
+<h1 id="lab-2"><strong>Lab 2</strong></h1>
+
+<p><strong>Task 1: Create Your VPC</strong></p>
+
+<ul>
+  <li>
+    <p><strong>Open VPC console.</strong></p>
+  </li>
+  <li>
+    <p><strong>Create VPC:</strong></p>
+
+    <ul>
+      <li>
+        <p>Name: lab</p>
+      </li>
+      <li>
+        <p>IPv4 CIDR: 10.0.0.0/16</p>
+      </li>
+      <li>
+        <p>1 Availability Zone</p>
+      </li>
+      <li>
+        <p>1 public subnet (10.0.0.0/24)</p>
+      </li>
+      <li>
+        <p>1 private subnet (10.0.1.0/24)</p>
+      </li>
+      <li>
+        <p>NAT Gateway in 1 AZ.</p>
+      </li>
+      <li>
+        <p>No VPC endpoints.</p>
+      </li>
+      <li>
+        <p>Enable DNS hostnames and resolution.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Confirm settings in the Preview panel.</p>
+  </li>
+  <li>
+    <p>Create VPC.</p>
+  </li>
+</ul>
+
+<p><img src="assets/aws/image86.png" alt="" /></p>
+
+<p><img src="assets/aws/image29.png" alt="" /></p>
+
+<p><img src="assets/aws/image32.png" alt="" /></p>
+
+<p><img src="assets/aws/image61.png" alt="" /></p>
+
+<p><img src="assets/aws/image71.png" alt="" /></p>
+
+<p><img src="assets/aws/image67.png" alt="" /></p>
+
+<p><strong>Task 2: Create Additional Subnets</strong></p>
+
+<ul>
+  <li>
+    <p><strong>Open Subnets.</strong></p>
+  </li>
+  <li>
+    <p><strong>Create second public subnet:</strong></p>
+
+    <ul>
+      <li>
+        <p>Name: lab-subnet-public2</p>
+      </li>
+      <li>
+        <p>Availability Zone: us-east-1b</p>
+      </li>
+      <li>
+        <p>IPv4 CIDR: 10.0.2.0/24</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Create second private subnet:</strong></p>
+
+    <ul>
+      <li>
+        <p>Name: lab-subnet-private2</p>
+      </li>
+      <li>
+        <p>Availability Zone: us-east-1b</p>
+      </li>
+      <li>
+        <p>IPv4 CIDR: 10.0.3.0/24</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Associate route table with new private subnet.</strong></p>
+  </li>
+  <li>
+    <p><strong>Associate route table with new public subnet.</strong></p>
+  </li>
+</ul>
+
+<p><img src="assets/aws/image53.png" alt="" /></p>
+
+<p><img src="assets/aws/image8.png" alt="" /></p>
+
+<p><img src="assets/aws/image85.png" alt="" /></p>
+
+<p><img src="assets/aws/image14.png" alt="" /></p>
+
+<p><strong>Task 3: Create a VPC Security Group</strong></p>
+
+<ul>
+  <li>
+    <p><strong>Open Security Groups.</strong></p>
+  </li>
+  <li>
+    <p><strong>Create security group:</strong></p>
+
+    <ul>
+      <li>
+        <p>Name: Web Security Group</p>
+      </li>
+      <li>
+        <p>Description: Enable HTTP access</p>
+      </li>
+      <li>
+        <p>VPC: lab-vpc</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Add inbound rule: HTTP from Anywhere-IPv4.</strong></p>
+  </li>
+</ul>
+
+<p><img src="assets/aws/image2.png" alt="" /></p>
+
+<p>Task 4: Launch a Web Server Instance</p>
+
+<ul>
+  <li>
+    <p><strong>Open EC2 console.</strong></p>
+  </li>
+  <li>
+    <p><strong>Launch instance with:</strong></p>
+
+    <ul>
+      <li>
+        <p>Name: Web Server 1</p>
+      </li>
+      <li>
+        <p>Amazon Linux 2023 AMI</p>
+      </li>
+      <li>
+        <p>t2.micro instance type</p>
+      </li>
+      <li>
+        <p>Key pair: vockey</p>
+      </li>
+      <li>Network: lab-vpc, Subnet: lab-subnet-public2, Auto-assign public
+        <blockquote>
+          <p>IP enabled</p>
+        </blockquote>
+      </li>
+      <li>
+        <p>Security group: Web Security Group</p>
+      </li>
+      <li>User data script for Apache and PHP installation.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Wait for the instance to pass status checks.</p>
+  </li>
+  <li>
+    <p>Copy Public IPv4 DNS.</p>
+  </li>
+  <li>
+    <p>Open browser, paste DNS, view AWS logo and metadata page.</p>
+  </li>
+</ul>
+
+<p><img src="assets/aws/image24.png" alt="" /></p>
+
+<p><img src="assets/aws/image75.png" alt="" /></p>
+
+<p><img src="assets/aws/image33.png" alt="" /></p>
+
+<p><img src="assets/aws/image74.png" alt="" /></p>
+
+<h2 id="-1"><img src="assets/aws/image66.png" alt="" /></h2>
+
+<h1 id="lab-3"><strong>Lab 3</strong></h1>
+
+<p><strong>Task 1: Launch Your Amazon EC2 Instance</strong></p>
+
+<ul>
+  <li>
+    <p><strong>Open EC2 console.</strong></p>
+  </li>
+  <li>
+    <p><strong>Launch instance:</strong></p>
+
+    <ul>
+      <li>
+        <p>Name: Web Server</p>
+      </li>
+      <li>
+        <p>Amazon Linux 2023 AMI</p>
+      </li>
+      <li>
+        <p>t2.micro instance type</p>
+      </li>
+      <li>
+        <p>Key pair: vockey</p>
+      </li>
+      <li>
+        <p>Network: Lab VPC, Subnet: default, Auto-assign public IP enabled</p>
+      </li>
+      <li>
+        <p>Security group: Create "Web Server security group"</p>
+      </li>
+      <li>
+        <p>User data script for Apache installation.</p>
+      </li>
+      <li>
+        <p>Termination protection enabled.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>**Wait for instance to display "Running" with "2/2 checks</p>
+    <blockquote>
+      <p>passed."**</p>
+    </blockquote>
+  </li>
+</ul>
+
+<p><img src="assets/aws/image10.png" alt="" /></p>
+
+<p><img src="assets/aws/image48.png" alt="" /></p>
+
+<p><img src="assets/aws/image82.png" alt="" /></p>
+
+<p><img src="assets/aws/image17.png" alt="" /></p>
+
+<p><img src="assets/aws/image18.png" alt="" /></p>
+
+<p><img src="assets/aws/image62.png" alt="" /></p>
+
+<p><img src="assets/aws/image78.png" alt="" /></p>
+
+<p><strong>Task 2: Monitor Your Instance</strong></p>
+
+<ol>
+  <li>
+    <p>Choose "Status checks" tab.</p>
+  </li>
+  <li>
+    <p>Check both System reachability and Instance reachability.</p>
+  </li>
+  <li>
+    <p>Choose "Monitoring" tab to view CloudWatch metrics.</p>
+  </li>
+  <li>
+    <p>View system log and instance screenshot for troubleshooting.</p>
+  </li>
+</ol>
+
+<p><img src="assets/aws/image39.png" alt="" /></p>
+
+<p><strong>Task 3: Update Your Security Group and Access the Web Server</strong></p>
+
+<ol>
+  <li>
+    <p>Copy Public IPv4 address.</p>
+  </li>
+  <li>
+    <p>Open Security Groups.</p>
+  </li>
+  <li>
+    <p>Edit "Web Server security group" inbound rules:</p>
+  </li>
+</ol>
+
+<ul>
+  <li>Add rule: Type HTTP, Source Anywhere-IPv4.</li>
+</ul>
+
+<ol>
+  <li>Refresh web browser, check if you can access the web server.</li>
+</ol>
+
+<p><img src="assets/aws/image12.png" alt="" /></p>
+
+<p><img src="assets/aws/image30.png" alt="" /></p>
+
+<p><strong>Task 4: Resize Your Instance: Instance Type and EBS Volume</strong></p>
+
+<ol>
+  <li>
+    <p>Stop the instance.</p>
+  </li>
+  <li>
+    <p>Change instance type to t2.small.</p>
+  </li>
+  <li>
+    <p>Modify EBS volume size to 10 GiB.</p>
+  </li>
+  <li>
+    <p>Start the resized instance.</p>
+  </li>
+</ol>
+
+<p><img src="assets/aws/image5.png" alt="" /></p>
+
+<p><img src="assets/aws/image77.png" alt="" /></p>
+
+<p><strong>Task 5: Explore EC2 Limits</strong></p>
+
+<ol>
+  <li>
+    <p>Search for "Service Quotas" in the AWS Management Console.</p>
+  </li>
+  <li>Choose "Amazon Elastic Compute Cloud (Amazon EC2)" under AWS
+    <blockquote>
+      <p>services.</p>
+    </blockquote>
+  </li>
+  <li>Observe and explore the default limits for running instances.</li>
+</ol>
+
+<p><img src="assets/aws/image6.png" alt="" /></p>
+
+<p><strong>Task 6: Test Termination Protection</strong></p>
+
+<ol>
+  <li>
+    <p>Open EC2 console.</p>
+  </li>
+  <li>
+    <p>Choose Instances.</p>
+  </li>
+  <li>
+    <p>Select "Web Server" instance.</p>
+  </li>
+  <li>
+    <p>Attempt to terminate, observe termination protection message.</p>
+  </li>
+  <li>
+    <p>Disable termination protection in "Instance settings."</p>
+  </li>
+  <li>
+    <p>Terminate the instance.</p>
+  </li>
+</ol>
+
+<p><img src="assets/aws/image83.png" alt="" /></p>
+
+<h2 id="-2"><img src="assets/aws/image72.png" alt="" /></h2>
+
+<h1 id="lab-4"><strong>Lab 4</strong></h1>
+
+<p><strong>Task 1: Create a New EBS Volume</strong></p>
+
+<ul>
+  <li>
+    <p><strong>Open EC2 console.</strong></p>
+  </li>
+  <li>
+    <p><strong>Navigate to Instances.</strong></p>
+  </li>
+  <li>**Note the Availability Zone of the existing instance (e.g.,
+    <blockquote>
+      <p>us-east-1a).**</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Go to Volumes.</strong></p>
+  </li>
+  <li>
+    <p><strong>Create a new volume:</strong></p>
+
+    <ul>
+      <li>
+        <p>Volume Type: General Purpose SSD (gp2)</p>
+      </li>
+      <li>
+        <p>Size (GiB): 1</p>
+      </li>
+      <li>
+        <p>Availability Zone: Select the same as the instance</p>
+      </li>
+      <li>
+        <p>Add Tag: Key: Name, Value: My Volume</p>
+      </li>
+      <li>
+        <p>Create Volume</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="assets/aws/image56.png" alt="" /></p>
+
+<p><strong>Task 2: Attach the Volume to an Instance</strong></p>
+
+<ol>
+  <li>
+    <p>Select "My Volume."</p>
+  </li>
+  <li>
+    <p>In Actions, choose Attach volume.</p>
+  </li>
+  <li>
+    <p>Choose the Lab instance, Device: /dev/sdf.</p>
+  </li>
+  <li>
+    <p>Attach volume.</p>
+  </li>
+</ol>
+
+<p><img src="assets/aws/image3.png" alt="" /></p>
+
+<p><strong>Task 3: Connect to Your Amazon EC2 Instance</strong></p>
+
+<ul>
+  <li>
+    <p>macOS and Linux Users</p>
+  </li>
+  <li>
+    <p>Download labsuser.pem.</p>
+  </li>
+  <li>
+    <p>Open terminal, navigate to the directory.</p>
+
+    <ul>
+      <li>
+        <p>cd ~/Documents</p>
+      </li>
+      <li>
+        <p>chmod 400 labsuser.pem</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Copy the Public IPv4 address.</p>
+  </li>
+  <li>
+    <p>In terminal:</p>
+
+    <ul>
+      <li>ssh -i labsuser.pem ec2-user@&lt;public-ip&gt;</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Task 4: Create and Configure Your File System</strong></p>
+
+<ul>
+  <li>
+    <p><strong>View available storage:</strong></p>
+
+    <ul>
+      <li><strong>df -h</strong></li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Create ext3 file system:</strong></p>
+
+    <ul>
+      <li><strong>sudo mkfs -t ext3 /dev/sdf</strong></li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Create a directory for mounting:</strong></p>
+
+    <ul>
+      <li><strong>sudo mkdir /mnt/data-store</strong></li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Mount the new volume:</strong></p>
+
+    <ul>
+      <li><strong>sudo mount /dev/sdf /mnt/data-store</strong></li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Add to /etc/fstab:</strong></p>
+
+    <ul>
+      <li>**echo "/dev/sdf /mnt/data-store ext3 defaults,noatime 1 2" |
+        <blockquote>
+          <p>sudo tee -a /etc/fstab**</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="assets/aws/image40.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p><strong>View configuration file:</strong></p>
+
+    <ul>
+      <li>cat /etc/fstab</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>View available storage again:</strong></p>
+
+    <ul>
+      <li>df -h</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Create a file and add text:</strong></p>
+
+    <ul>
+      <li>sudo sh -c "echo some text has been written &gt;
+        <blockquote>
+          <p>/mnt/data-store/file.txt"</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Verify the text has been written:</strong></p>
+
+    <ul>
+      <li>cat /mnt/data-store/file.txt</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="assets/aws/image88.png" alt="" /></p>
+
+<p><strong>Task 5: Create an Amazon EBS Snapshot</strong></p>
+
+<ol>
+  <li>
+    <p>In EC2 console, choose Volumes, select "My Volume."</p>
+  </li>
+  <li>
+    <p>In Actions, choose Create snapshot.</p>
+  </li>
+  <li>
+    <p>Add tag: Key: Name, Value: My Snapshot.</p>
+  </li>
+  <li>
+    <p>Create snapshot.</p>
+  </li>
+</ol>
+
+<p><img src="assets/aws/image84.png" alt="" /></p>
+
+<p><strong>Task 6: Restore the Amazon EBS Snapshot</strong></p>
+
+<ul>
+  <li><strong>Create a Volume Using Your Snapshot</strong></li>
+</ul>
+
+<ol>
+  <li>
+    <p>In EC2 console, select "My Snapshot."</p>
+  </li>
+  <li>
+    <p>In Actions, choose Create volume from snapshot.</p>
+  </li>
+  <li>
+    <p>For Availability Zone, select the same as before.</p>
+  </li>
+  <li>
+    <p>Add tag: Key: Name, Value: Restored Volume.</p>
+  </li>
+  <li>
+    <p>Create volume.</p>
+  </li>
+</ol>
+
+<ul>
+  <li><strong>Attach the Restored Volume to Your EC2 Instance</strong></li>
+</ul>
+
+<ol>
+  <li>
+    <p>In Volumes, select "Restored Volume."</p>
+  </li>
+  <li>
+    <p>In Actions, choose Attach volume.</p>
+  </li>
+  <li>
+    <p>Choose the Lab instance, Device: /dev/sdg.</p>
+  </li>
+  <li>
+    <p>Attach volume.</p>
+  </li>
+</ol>
+
+<ul>
+  <li>
+    <p><strong>Mount the Restored Volume</strong></p>
+  </li>
+  <li>
+    <p><strong>Create a directory for mounting:</strong></p>
+
+    <ul>
+      <li><strong>sudo mkdir /mnt/data-store2</strong></li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Mount the restored volume:</strong></p>
+
+    <ul>
+      <li><strong>sudo mount /dev/sdg /mnt/data-store2</strong></li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Verify the volume has the file:</strong></p>
+
+    <ul>
+      <li><strong>ls /mnt/data-store2/</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="assets/aws/image20.png" alt="" /></p>
+
+<h2 id="-3"><img src="assets/aws/image21.png" alt="" /></h2>
+
+<h1 id="lab-5"><strong>Lab 5</strong></h1>
+
+<p><strong>Task 1: Create a Security Group for the RDS DB Instance</strong></p>
+
+<ul>
+  <li>
+    <p>Go to the VPC service in the AWS Management Console.</p>
+  </li>
+  <li>
+    <p>In the left navigation pane, select "Security Groups."</p>
+  </li>
+  <li>
+    <p>Choose "Create security group" and configure:</p>
+
+    <ul>
+      <li>
+        <p>Security group name: DB Security Group</p>
+      </li>
+      <li>
+        <p>Description: Permit access from Web Security Group</p>
+      </li>
+      <li>
+        <p>VPC: Lab VPC</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Add inbound rule:</p>
+
+    <ul>
+      <li>
+        <p>Type: MySQL/Aurora (3306)</p>
+      </li>
+      <li>
+        <p>Source: Type "sg" and select Web Security Group.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Choose "Create security group."</p>
+  </li>
+</ul>
+
+<p><img src="assets/aws/image65.png" alt="" /></p>
+
+<p><strong>Task 2: Create a DB Subnet Group</strong></p>
+
+<ul>
+  <li>
+    <p><strong>Go to the RDS service in the AWS Management Console.</strong></p>
+  </li>
+  <li>
+    <p><strong>In the left navigation pane, select "Subnet groups."</strong></p>
+  </li>
+  <li>
+    <p><strong>Choose "Create DB Subnet Group" and configure:</strong></p>
+
+    <ul>
+      <li>
+        <p>Name: DB-Subnet-Group</p>
+      </li>
+      <li>
+        <p>Description: DB Subnet Group</p>
+      </li>
+      <li>
+        <p>VPC: Lab VPC</p>
+      </li>
+      <li>
+        <p>Add subnets for us-east-1a and us-east-1b with CIDR ranges</p>
+        <blockquote>
+          <p>10.0.1.0/24 and 10.0.3.0/24.</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Choose "Create."</p>
+  </li>
+</ul>
+
+<p><img src="assets/aws/image1.png" alt="" /></p>
+
+<p><strong>Task 3: Create an Amazon RDS DB Instance</strong></p>
+
+<ul>
+  <li>
+    <p>In the RDS service, choose "Databases."</p>
+  </li>
+  <li>
+    <p>Choose "Create database" and select MySQL under Engine Options.</p>
+  </li>
+  <li>
+    <p>Choose Dev/Test under Templates.</p>
+  </li>
+  <li>
+    <p>Choose Multi-AZ DB instance under Availability and durability.</p>
+  </li>
+  <li>
+    <p>Configure settings:</p>
+
+    <ul>
+      <li>
+        <p>DB instance identifier: lab-db</p>
+      </li>
+      <li>
+        <p>Master username: main</p>
+      </li>
+      <li>
+        <p>Master password: lab-password</p>
+      </li>
+      <li>
+        <p>DB instance class: db.t3.micro</p>
+      </li>
+      <li>
+        <p>Allocated storage: 20</p>
+      </li>
+      <li>
+        <p>VPC: Lab VPC</p>
+      </li>
+      <li>
+        <p>Security group: DB Security Group</p>
+      </li>
+      <li>
+        <p>Initial database name: lab</p>
+      </li>
+      <li>
+        <p>Uncheck backups, encryption, and enhanced monitoring.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Choose "Create database."</p>
+  </li>
+  <li>
+    <p>Wait for the database to be available, copy the Endpoint.</p>
+  </li>
+</ul>
+
+<p><img src="assets/aws/image27.png" alt="" /></p>
+
+<p><img src="assets/aws/image16.png" alt="" /></p>
+
+<p><img src="assets/aws/image28.png" alt="" /></p>
+
+<p><img src="assets/aws/image23.png" alt="" /></p>
+
+<p><img src="assets/aws/image55.png" alt="" /></p>
+
+<p><img src="assets/aws/image80.png" alt="" /></p>
+
+<p><img src="assets/aws/image58.png" alt="" /></p>
+
+<p><img src="assets/aws/image63.png" alt="" /></p>
+
+<p><img src="assets/aws/image42.png" alt="" /></p>
+
+<p><img src="assets/aws/image89.png" alt="" /></p>
+
+<p><strong>Task 4: Interact with Your Database</strong></p>
+
+<ul>
+  <li>
+    <p><strong>Obtain WebServer IP address from the Details dropdown.</strong></p>
+  </li>
+  <li>**Open a new web browser tab, paste the WebServer IP address, and
+    <blockquote>
+      <p>press Enter.**</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Navigate to the RDS link on the web application.</strong></p>
+  </li>
+  <li>
+    <p><strong>Configure the application:</strong></p>
+
+    <ul>
+      <li>
+        <p>Endpoint: Paste the Endpoint copied earlier</p>
+      </li>
+      <li>
+        <p>Database: lab</p>
+      </li>
+      <li>
+        <p>Username: main</p>
+      </li>
+      <li>
+        <p>Password: lab-password</p>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Choose "Submit."</strong></li>
+</ul>
+
+<h2 id="-4"><img src="assets/aws/image4.png" alt="" /></h2>
+
+<h1 id="lab-6"><strong>Lab 6</strong></h1>
+
+<p><strong>Task 1: Create an AMI for Auto Scaling</strong></p>
+
+<ul>
+  <li>
+    <p><strong>Go to EC2 in the AWS Management Console.</strong></p>
+  </li>
+  <li>
+    <p><strong>In the left navigation pane, select "Instances."</strong></p>
+  </li>
+  <li>**Wait for Web Server 1 to show "2/2 checks passed" under Status
+    <blockquote>
+      <p>Checks.**</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Select Web Server 1.</strong></p>
+  </li>
+  <li>**In the "Actions" menu, choose "Image and templates" &gt;
+    <blockquote>
+      <p>"Create image."**</p>
+    </blockquote>
+
+    <ul>
+      <li>
+        <p>Image name: WebServerAMI</p>
+      </li>
+      <li>
+        <p>Image description: Lab AMI for Web Server</p>
+      </li>
+    </ul>
+  </li>
+  <li>Choose "Create image."</li>
+</ul>
+
+<p><img src="assets/aws/image37.png" alt="" /></p>
+
+<p><img src="assets/aws/image11.png" alt="" /></p>
+
+<p><img src="assets/aws/image87.png" alt="" /></p>
+
+<p><strong>Task 2: Create a Load Balancer</strong></p>
+
+<ul>
+  <li>
+    <p><strong>Go to the AWS Management Console.</strong></p>
+  </li>
+  <li>
+    <p><strong>In the left navigation pane, select "Target Groups."</strong></p>
+  </li>
+  <li>
+    <p><strong>Choose "Create target group":</strong></p>
+
+    <ul>
+      <li>
+        <p>Target type: Instances</p>
+      </li>
+      <li>
+        <p>Target group name: LabGroup</p>
+      </li>
+      <li>
+        <p>VPC: Lab VPC</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Choose "Create target group."</strong></p>
+  </li>
+  <li>
+    <p><strong>Go to "Load Balancers" in the left navigation pane.</strong></p>
+  </li>
+  <li>**Choose "Create load balancer" and select "Application Load
+    <blockquote>
+      <p>Balancer."**</p>
+    </blockquote>
+
+    <ul>
+      <li>
+        <p>Load balancer name: LabELB</p>
+      </li>
+      <li>
+        <p>VPC: Lab VPC</p>
+      </li>
+      <li>
+        <p>Subnets: Public Subnet 1, Public Subnet 2</p>
+      </li>
+      <li>
+        <p>Security groups: Web Security Group</p>
+      </li>
+      <li>
+        <p>Listener HTTP:80, Default action: forward to LabGroup</p>
+      </li>
+    </ul>
+  </li>
+  <li>Choose "Create load balancer."</li>
+</ul>
+
+<p><img src="assets/aws/image43.png" alt="" /></p>
+
+<p><img src="assets/aws/image46.png" alt="" /></p>
+
+<p><img src="assets/aws/image59.png" alt="" /></p>
+
+<p><img src="assets/aws/image49.png" alt="" /></p>
+
+<p><img src="assets/aws/image47.png" alt="" /></p>
+
+<p><img src="assets/aws/image60.png" alt="" /></p>
+
+<p><strong>Task 3: Create a Launch Template and an Auto Scaling Group</strong></p>
+
+<ul>
+  <li>
+    <p><strong>Go to "Launch Templates" in the left navigation pane.</strong></p>
+  </li>
+  <li>
+    <p><strong>Choose "Create launch template":</strong></p>
+
+    <ul>
+      <li>
+        <p>Launch template name: LabConfig</p>
+      </li>
+      <li>
+        <p>Auto Scaling guidance: Provide guidance</p>
+      </li>
+      <li>
+        <p>AMI: Web Server AMI</p>
+      </li>
+      <li>
+        <p>Instance type: t2.micro</p>
+      </li>
+      <li>
+        <p>Key pair: vockey</p>
+      </li>
+      <li>
+        <p>Security groups: Web Security Group</p>
+      </li>
+      <li>
+        <p>Enable detailed CloudWatch monitoring</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Choose "Create launch template."</strong></p>
+  </li>
+  <li>
+    <p><strong>In the success dialog, choose the LabConfig template.</strong></p>
+  </li>
+  <li>
+    <p><strong>From the "Actions" menu, choose "Create Auto Scaling group":</strong></p>
+
+    <ul>
+      <li>
+        <p>Auto Scaling group name: Lab Auto Scaling Group</p>
+      </li>
+      <li>
+        <p>Launch template: LabConfig</p>
+      </li>
+      <li>
+        <p>VPC: Lab VPC</p>
+      </li>
+      <li>
+        <p>Subnets: Private Subnet 1, Private Subnet 2</p>
+      </li>
+      <li>
+        <p>Attach to an existing load balancer: LabGroup</p>
+      </li>
+      <li>
+        <p>Enable group metrics collection within CloudWatch</p>
+      </li>
+      <li>
+        <p>Desired capacity: 2, Minimum capacity: 2, Maximum capacity: 6</p>
+      </li>
+      <li>Scaling policy: Target tracking, Metric type: Average CPU
+        <blockquote>
+          <p>Utilization, Target value: 60</p>
+        </blockquote>
+      </li>
+      <li>Tags: Key: Name, Value: Lab Instance</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Choose "Create Auto Scaling group."</p>
+
+<p><img src="assets/aws/image68.png" alt="" /></p>
+
+<p><img src="assets/aws/image76.png" alt="" /></p>
+
+<p><img src="assets/aws/image9.png" alt="" /></p>
+
+<p><img src="assets/aws/image25.png" alt="" /></p>
+
+<p><img src="assets/aws/image13.png" alt="" /></p>
+
+<p><strong>Task 4: Verify that Load Balancing is Working</strong></p>
+
+<ol>
+  <li>
+    <p>Go to "Instances" in the left navigation pane.</p>
+  </li>
+  <li>
+    <p>Verify two new instances named Lab Instance.</p>
+  </li>
+  <li>
+    <p>Go to "Target Groups" and select LabGroup.</p>
+  </li>
+  <li>Choose the "Targets" tab and wait for both instances to become
+    <blockquote>
+      <p>healthy.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Go to "Load Balancers," select LabELB, and copy the DNS name.</p>
+  </li>
+  <li>Open a new browser tab, paste the DNS name, and ensure the
+    <blockquote>
+      <p>application appears.</p>
+    </blockquote>
+  </li>
+</ol>
+
+<p><strong>Task 5: Test Auto Scaling</strong></p>
+
+<ol>
+  <li>
+    <p>Open CloudWatch from the AWS Management Console.</p>
+  </li>
+  <li>
+    <p>Choose "All alarms" in the left navigation pane.</p>
+  </li>
+  <li>
+    <p>Verify the two alarms created by Auto Scaling.</p>
+  </li>
+  <li>If alarms are not visible, go to EC2 &gt; Auto Scaling Groups &gt; Lab
+    <blockquote>
+      <p>Auto Scaling Group &gt; Automatic Scaling &gt; LabScalingPolicy &gt;
+Actions &gt; Edit, change Target Value to 50, and choose Update.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Choose the OK alarm (AlarmHigh) and wait for it to transition to OK.</p>
+  </li>
+  <li>Return to the web application and choose "Load Test" to generate
+    <blockquote>
+      <p>load.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Return to CloudWatch and wait for AlarmHigh to change to In alarm.</p>
+  </li>
+  <li>Verify additional instances were launched in EC2 &gt; Instances.</li>
+</ol>
+
+<p><img src="assets/aws/image54.png" alt="" /></p>
+
+<p><img src="assets/aws/image50.png" alt="" /></p>
+
+<p><img src="assets/aws/image7.png" alt="" /></p>
+
+<p><img src="assets/aws/image64.png" alt="" /></p>
+
+<p><img src="assets/aws/image51.png" alt="" /></p>
+
+<p><img src="assets/aws/image52.png" alt="" /></p>
+
+<p><img src="assets/aws/image81.png" alt="" /></p>
+
+<p><img src="assets/aws/image31.png" alt="" /></p>
+
+<p><img src="assets/aws/image44.png" alt="" /></p>
+
+<p><img src="assets/aws/image79.png" alt="" /></p>
+
+<p><strong>Task 6: Terminate Web Server 1</strong></p>
+
+<ol>
+  <li>
+    <p>Select Web Server 1.</p>
+  </li>
+  <li>In the "Instance state" menu, choose "Instance State" &gt;
+    <blockquote>
+      <p>"Terminate Instance."</p>
+    </blockquote>
+  </li>
+  <li>Choose "Terminate."</li>
+</ol>
+
+<h2 id="-5"><img src="assets/aws/image19.png" alt="" /></h2>
+:ET
