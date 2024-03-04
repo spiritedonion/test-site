@@ -11,7 +11,7 @@ order: 4
 
 ## Contact
 
-**Location:** Bagmati Province, Bhaktapur, Gaththaghar Area  
+**Location:** Bagmati Province, Gaththaghar Area, Bhaktapur  
 **Phone:** +977 9861002474  
 **Email:** g.gautam@orangeymango.xyz  
 **LinkedIn:** [Gauranga Gautam](https://www.linkedin.com/in/gaurangagautam/){:target="_blank"}  
