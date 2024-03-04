@@ -1,0 +1,200 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://spiritedonion.github.io/</id>
+  <title>Orangeymango</title>
+  <subtitle>Imma good guy.</subtitle>
+  <updated>2024-03-04T15:38:28+05:45</updated>
+  <author>
+    <name>Orangeymango</name>
+    <uri>https://spiritedonion.github.io/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="https://spiritedonion.github.io/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="https://spiritedonion.github.io/"/>
+  <generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator>
+  <rights> © 2024 Orangeymango </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>Fortigate</title>
+    <link href="https://spiritedonion.github.io/posts/fortigate/" rel="alternate" type="text/html" title="Fortigate" />
+    <published>2024-02-19T17:12:22+05:45</published>
+  
+    <updated>2024-02-19T17:12:22+05:45</updated>
+  
+    <id>https://spiritedonion.github.io/posts/fortigate/</id>
+    <content src="https://spiritedonion.github.io/posts/fortigate/" />
+    <author>
+      <name>Gauranga</name>
+    </author>
+
+  
+    
+    <category term="Writing" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Table of Contents
+
+Table of Contents
+
+
+  ACKNOWLEDGEMENT
+  ABSTRACT
+  INTRODUCTION TO FORTIGATE
+  OBJECTIVES
+  SCOPE OF FORTIGATE
+  IMPORTANCE OF THE PROJECT
+  LIMITATIONS OF THE PROJECT
+  PROCEDURE
+  CONCLUSION
+  SCREENSHOTS
+
+
+ACKNOWLEDGEMENT
+
+I would like to express my heartfelt gratitude to all those who have contributed and supported me during the completion of this project titled “fortigat...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>AWS</title>
+    <link href="https://spiritedonion.github.io/posts/AWS/" rel="alternate" type="text/html" title="AWS" />
+    <published>2024-02-19T17:12:22+05:45</published>
+  
+    <updated>2024-02-19T17:12:22+05:45</updated>
+  
+    <id>https://spiritedonion.github.io/posts/AWS/</id>
+    <content src="https://spiritedonion.github.io/posts/AWS/" />
+    <author>
+      <name>Gauranga</name>
+    </author>
+
+  
+    
+    <category term="Writing" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      AWS lab by Gauranga Gautam
+
+Lab1
+
+Task 1: Explore Users and Groups
+
+
+  Users:
+
+
+
+  
+    user-1, user-2, user-3 created.
+  
+  
+    No permissions assigned.
+  
+
+
+
+
+
+
+Groups:
+
+
+  EC2-Admin, EC2-Support, S3-Support created.
+
+
+Group Permissions:
+
+
+  
+    EC2-Support: AmazonEC2ReadOnlyAccess policy.
+  
+  
+    S3-Support: AmazonS3ReadOnlyAccess policy.
+  
+  
+    EC2-Admin: Inline policy for EC2 Descri...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Active Directory Penetration Test Report</title>
+    <link href="https://spiritedonion.github.io/posts/AD/" rel="alternate" type="text/html" title="Active Directory Penetration Test Report" />
+    <published>2024-02-18T17:12:22+05:45</published>
+  
+    <updated>2024-02-18T17:12:22+05:45</updated>
+  
+    <id>https://spiritedonion.github.io/posts/AD/</id>
+    <content src="https://spiritedonion.github.io/posts/AD/" />
+    <author>
+      <name>Gauranga</name>
+    </author>
+
+  
+    
+    <category term="Writing" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Date: February 14, 2024
+
+Table of Contents
+
+
+  Executive Summary
+  Introduction
+  Scope
+  Methodology
+  Findings
+    
+      5.1 Windows Server 2016 Setup
+      5.2 Active Directory Configuration
+        
+          5.2.1: Implementing Active Directory Domain Services (AD DS)
+          5.2.2: Establish Domain Controller Role on the Server
+          5.2.3: Configure Active Directory Parameters
+   ...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+
